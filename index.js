@@ -220,9 +220,7 @@ Use the getRandomFlavors function and new arrays below to do the following:
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-function getRandomFlavors(array1, array2, array3) {
-  /*code here*/
-}
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -306,14 +304,16 @@ const regionalFlavors = [
 ];
 
 
-let randomFlavorsList = [];
+
 function getRandomFlavorsList(arr1, arr2, arr3, arr4) {
   let allFlavors = [...arr1, ...arr2, ...arr3, ...arr4];
+  let randomFlavorsList = [];
 
   for (let i = 0; i < allFlavors.length; i++) {
+    let randomNumber = Math.floor(Math.random() * allFlavors.length)
     if (
       randomFlavorsList.includes(
-        allFlavors[Math.floor(Math.random() * allFlavors.length)]
+        allFlavors[randomNumber]
       ) === false
     ) {
       randomFlavorsList.push(
