@@ -100,9 +100,12 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/) {
-  /*your code here*/
+function removeLastFlavor(array) {
+  array.pop();
+  console.log(array);
+  return array;
 }
+removeLastFlavor(originalFlavors);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Write a function that returns a flavor at a given index in the array.
@@ -115,8 +118,9 @@ Use the getFlavorByIndex function below to do the following:
     For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
 
-function getFlavorByIndex(/*your code here*/) {
-  /*your code here*/
+function getFlavorByIndex(array, index) {
+    console.log(array[index]);
+    return array[index];
 }
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -134,9 +138,16 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this
 */
 
-function removeFlavorByName(/*your code here*/) {
-  /*your code here*/
+function removeFlavorByName(array, flavor) {
+  for (let i=0; i < array.length; i++) {
+      if(array[i] === flavor) {
+          array.splice(i,1);
+      }
+  }
+  console.log(array);
+  return array;
 }
+removeFlavorByName(originalFlavors, "Rocky Road")
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. 
@@ -158,9 +169,17 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/) {
-  /*your code here*/
+function filterByWord(array, search) {
+    let filteredFlavors = [];
+    for(let i = 0; i<array.length; i++) {
+        if(array[i].includes(search)){
+            filteredFlavors.push(array[i])
+        }
+    }
+    console.log(filteredFlavors);
+    return filteredFlavors;  
 }
+filterByWord(originalFlavors, "Chocolate")
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/
 
@@ -174,8 +193,9 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/) {
-  /*code here*/
+function getAverageWordLength(array) {
+    
+
 }
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
@@ -190,7 +210,7 @@ Use the getRandomFlavors function and new arrays below to do the following:
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
-function getRandomFlavors(/*code here*/) {
+function getRandomFlavors(array1, array2, array3) {
   /*code here*/
 }
 
@@ -274,6 +294,36 @@ const regionalFlavors = [
   "Chocolate Chocolate Chip Cheesecake",
   "Caramel 'n' Cookies",
 ];
+
+
+let randomFlavorsList = [];
+function getRandomFlavorsList(arr1, arr2, arr3, arr4) {
+  let allFlavors = [...arr1, ...arr2, ...arr3, ...arr4];
+
+  for (let i = 0; i < allFlavors.length; i++) {
+    if (
+      randomFlavorsList.includes(
+        allFlavors[Math.floor(Math.random() * allFlavors.length)]
+      ) === false
+    ) {
+      randomFlavorsList.push(
+        allFlavors[Math.floor(Math.random() * allFlavors.length)]
+      );
+    }
+  }
+  console.log(randomFlavorsList);
+  return randomFlavorsList;
+}
+
+getRandomFlavorsList(
+  originalFlavors,
+  newFlavors,
+  seasonalFlavors,
+  regionalFlavors
+);
+
+let randomFlavors = randomFlavorsList.slice(0, 31);
+return randomFlavors;
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
 function foo() {
